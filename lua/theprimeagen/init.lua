@@ -66,3 +66,11 @@ autocmd('LspAttach', {
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+vim.g.neoformat_try_node_exe = 1
+vim.api.nvim_exec([[
+  augroup FormatAutogroup
+    autocmd!
+    autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx Neoformat
+  augroup END
+]], true)
